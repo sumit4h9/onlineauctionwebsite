@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidding Page</title>
+    <link rel="stylesheet" href="bid.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Ensures full height */
+      background-color: aqua;
+    }
+    .container {
+      width: 80%; /* Adjust width as needed */
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      text-align: center;
+      
+    }
+    .bid-container {
+      margin-bottom: 20px;
+    }
+    .bid-container input[type="number"] {
+      width: 100px;
+      padding: 8px;
+      font-size: 16px;
+    }
+    .bid-container button {
+      padding: 8px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #currentBid {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <div class="hero">
+		<nav>
+		  <img src="image/Initial Letter D Digital Logo Design Template (2).ico" class="logo">
+			  <ul>
+				  <li><a href="index.html">Home</a></li>
+				  <li><a href="Contact us.html">Contact us</a></li>
+				  <li><a href="login.html">Login</a></li>
+				  <li><a href="SignUp.html">Sign up</a></li>
+			  </ul>
+			  <img src="image/menu.png" class="menu-img">
+		</nav>
+	  </div>
+      <center>
+        <div class="image">
+            <img src="images 1/auction3-1@3x.png" alt="">
+            <h1>PLACE BID</h1>
+          </div>
+    <div class="container">
+        <h1>Bidding Page</h1>
+        <div class="bid-container">
+          <p>Current Highest Bid: <span id="currentBid">0</span></p>
+          <input type="number" id="bidAmount" placeholder="Enter your bid amount">
+          <button onclick="placeBid()">Place Bid</button>
+        </div>
+        <p id="message"></p>
+      </div>
+    </center>
+      <script>
+        let currentHighestBid = 0;
+    
+        function placeBid() {
+          const bidInput = document.getElementById('bidAmount');
+          const newBid = parseInt(bidInput.value);
+    
+          if (!isNaN(newBid) && newBid > currentHighestBid) {
+            currentHighestBid = newBid;
+            document.getElementById('currentBid').innerText = currentHighestBid;
+            document.getElementById('message').innerText = 'Bid placed successfully!';
+            bidInput.value = '';
+          } else {
+            document.getElementById('message').innerText = 'Please enter a valid higher bid amount.';
+          }
+        }
+      </script> 
+</body>
